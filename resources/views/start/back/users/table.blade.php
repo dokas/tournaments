@@ -4,12 +4,12 @@
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
         <td>
-            @if($user->role === 'admin')
+            @if($user->getRole()->name === 'administrator')
                 Administrator
-            @elseif($user->role === 'redac')
-                Redactor
+            @elseif($user->getRole()->name === 'author')
+                Author
             @else
-                User
+                Player
             @endif
         </td>
         <td>

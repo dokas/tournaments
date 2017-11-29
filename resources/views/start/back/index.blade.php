@@ -1,10 +1,9 @@
 @extends(env('THEME').'.back.layout')
 
 @section('main')
-{{ dump($pannels) }}
     @admin
         <div class="row">
-            @each('back/partials/pannel', $pannels, 'pannel')
+            @each(env('THEME').'/back/partials/panel', $panels, 'panel')
         </div>
     @endadmin
 @endsection

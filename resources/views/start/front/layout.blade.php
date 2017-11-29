@@ -62,7 +62,6 @@
                 </ul>
             @endif
             </div>
-            
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
     </nav>

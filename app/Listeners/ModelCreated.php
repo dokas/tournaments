@@ -2,7 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Events\ModelCreated;
+use App\Events\ModelCreated as EventModelCreated;
+use App\Models\Ingoing;
 
 
 class ModelCreated
@@ -13,8 +14,8 @@ class ModelCreated
      * @param  ModelCreated  $event
      * @return void
      */
-    public function handle(ModelCreated $event)
+    public function handle(EventModelCreated $event)
     {
-        //
+        $event->model->ingoing()->save(new Ingoing);
     }
 }

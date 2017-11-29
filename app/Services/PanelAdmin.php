@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class PannelAdmin
+class PanelAdmin
 {
 
     /**
@@ -62,12 +62,12 @@ class PannelAdmin
     }
 
     /**
-     * Get new records number the pannel
+     * Get new records number the panel
      *
      * @return integer
      */
     protected function getNumber()
     {
-        //return $this->model->has('ingoing')->count();
+        return $this->model->has('ingoing')->count();
     }
 }

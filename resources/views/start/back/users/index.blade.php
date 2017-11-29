@@ -17,9 +17,9 @@
                 <div class="box-header with-border">
                     <strong>@lang('Roles') :</strong> &nbsp;
                     <input type="radio" name="role" value="all" checked> @lang('All')&nbsp;
-                    <input type="radio" name="role" value="admin"> @lang('Administrator')&nbsp;
-                    <input type="radio" name="role" value="redac"> @lang('Redactor')&nbsp;
-                    <input type="radio" name="role" value="user"> @lang('User')&nbsp;<br>
+                    <input type="radio" name="role" value="administrator"> @lang('Administrator')&nbsp;
+                    <input type="radio" name="role" value="author"> @lang('Author')&nbsp;
+                    <input type="radio" name="role" value="player"> @lang('Player')&nbsp;<br>
                     <strong>@lang('Status') :</strong> &nbsp;
                     <input type="checkbox" name="new" @if(request()->new) checked @endif> @lang('New')&nbsp;
                     <input type="checkbox" name="valid"> @lang('Valid')&nbsp;
@@ -61,7 +61,7 @@
                         </tr>
                         </tfoot>
                         <tbody id="pannel">
-                            @include('back.users.table', compact('users'))
+                            @include(env('THEME').'.back.users.table', compact('users'))
                         </tbody>
                     </table>
                 </div>
@@ -79,7 +79,7 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('adminlte/js/back.js') }}"></script>
+    <script src="{{ asset(env('THEME').'/back/js/back.js') }}"></script>
     <script>
 
         var user = (function () {

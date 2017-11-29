@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Redac
+class Author
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class Redac
     {
         $user = $request->user();
 
-        if ($user && ($user->role === 'admin' || $user->role === 'redac')) {
+        if ($user && ($user->getRole()->name === 'administrator' || $user->getRole()->name === 'author')) {
             return $next($request);
         }
 

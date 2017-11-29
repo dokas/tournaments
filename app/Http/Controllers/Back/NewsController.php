@@ -4,39 +4,23 @@ namespace App\Http\Controllers\Back;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Http\Controllers\Back\Indexable;
 use App\Repositories\NewsRepository;
+use App\Models\News;
 
 class NewsController extends Controller
 {
+
+    use Indexable;
+
     /**
      * Create a new NewsController instance
-     * @param UserRepository $newsRepository
+     * @param \App\Repositories\NewsRepository $newsRepository
      */
     public function __construct(NewsRepository $newsRepository) {
         $this->repository = $newsRepository;
-        
-        $this->table = 'news';
-    }
-    
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $this->table = 'news';
     }
 
     /**
@@ -51,14 +35,24 @@ class NewsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show the form for creating a new news.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function create()
     {
-        //
+        return view(env('THEME').'.back.news.create');
+    }
+
+    /**
+     * Display the news.
+     *
+     * @param  \App\Models\News $news
+     * @return \Illuminate\Http\Response
+     */
+    public function show(News $news)
+    {
+        return view(env('THEME').'.back.news.show', compact('news'));
     }
 
     /**

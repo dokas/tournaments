@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Http\ViewComposers\HeaderComposer;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,14 +16,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        DB::listen(function($query) {
+            //dump($query->sql);
+        });
+
         view()->composer(env('THEME').'/back/layout', HeaderComposer::class);
-        
+
         Blade::if('admin', function() {
-            return auth()->user()->role === 'admin';
+            return auth()->user()->getRole()->name === 'administrator';
         });
         
-        Blade::if('redac', function() {
-            return auth()->user()->role === 'redac';
+        Blade::if('author', function() {
+            return auth()->user()->getRole()->name === 'author';
         });
 
         Blade::if('request', function ($url) {

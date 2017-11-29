@@ -14,7 +14,6 @@ class ModelCreated
     /**
      * Create a new event instance.
      * @param Model $model
-     * @return void
      */
     public function __construct(Model $model)
     {

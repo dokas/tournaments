@@ -21,7 +21,7 @@ Auth::routes();
  * Backend
  */
 Route::prefix('admin')->namespace('Back')->group(function() {
-    Route::middleware('redac')->group(function() {
+    Route::middleware('author')->group(function() {
         Route::name('admin')->get('/', 'AdminController@index');
         
         // News

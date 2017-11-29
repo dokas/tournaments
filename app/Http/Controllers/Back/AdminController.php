@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Back;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Services\PannelAdmin;
+use App\Services\PanelAdmin;
 
 class AdminController extends Controller
 {
@@ -15,16 +15,16 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $pannels = [];
+        $panels = [];
         
-        foreach (config('pannels') as $pannel) {
-            $pannelAdmin = new PannelAdmin($pannel);
+        foreach (config('panels') as $panel) {
+            $panelAdmin = new PanelAdmin($panel);
             
-            if($pannelAdmin->nbr) {
-                $pannels[] = $pannelAdmin;
+            if($panelAdmin->nbr) {
+                $panels[] = $panelAdmin;
             }
         }
         
-        return view(env('THEME').'.back.index', compact('pannels'));
+        return view(env('THEME').'.back.index', compact('panels'));
     }
 }

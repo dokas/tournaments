@@ -1,4 +1,4 @@
-@extends('back.layout')
+@extends(env('THEME').'.back.layout')
 
 @section('css')
 
@@ -10,7 +10,7 @@
         <!-- left column -->
         <div class="col-md-12">
             @if (session('user-updated'))
-                @component('back.components.alert')
+                @component(env('THEME').'.back.components.alert')
                     @slot('type')
                         success
                     @endslot
@@ -35,11 +35,12 @@
                             {!! $errors->first('email', '<small class="help-block">:message</small>') !!}
                         </div>
                         <div class="form-group">
+
                             <label for="role">@lang('Role')</label>
-                            <select class="form-control" name="role" id="role">
-                                <option value="admin" {{ old('role', $user->role) === 'admin' ? 'selected' : '' }}>@lang('Administrator')</option>
-                                <option value="redac" {{ old('role', $user->role) === 'redac' ? 'selected' : '' }}>@lang('Redactor')</option>
-                                <option value="user" {{ old('role', $user->role) === 'user' ? 'selected' : '' }}>@lang('User')</option>
+                            <select class="form-control" name="roles" id="roles">
+                                <option value="{{ $role->getAdministrator()->id }}" {{ old('role', $user->getRole()->name) === 'administrator' ? 'selected' : '' }}>@lang('Administrator')</option>
+                                <option value="{{ $role->getAuthor()->id }}" {{ old('role', $user->getRole()->name) === 'author' ? 'selected' : '' }}>@lang('Author')</option>
+                                <option value="{{ $role->getPlayer()->id }}" {{ old('role', $user->getRole()->name) === 'player' ? 'selected' : '' }}>@lang('Player')</option>
                             </select>
                         </div>
                         @if ($user->ingoing)
