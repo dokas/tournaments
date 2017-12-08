@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Models\Role;
+use App\Http\Requests\UserSettingsUpdateRequest;
 
 class UserRepository
 {
@@ -57,6 +58,23 @@ class UserRepository
         }
 
         $user->roles()->sync($request->roles);
+    }
+
+    /**
+     * Update a user from his settings page
+     * @param \App\Http\Requests\UserSettingsUpdateRequest $request
+     * @param \App\Models\User $user
+     */
+    public function updateSettings(UserSettingsUpdateRequest $request, User $user)
+    {
+        $data = $request->all();
+        if(empty($request->password)) {
+            $data = $request->except('password');
+        } else {
+            $data['password'] = bcrypt($request->password);
+        }
+
+        $user->update($data);
     }
 }
 

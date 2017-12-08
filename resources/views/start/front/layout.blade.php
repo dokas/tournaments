@@ -50,11 +50,15 @@
             </ul>
               <div class="navbar-right">
             @if (Auth::check())
-                {{ Auth::user()->name }}
-                <a id="logout" href="{{ route('logout') }}">@lang('Logout')</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">
-                    {{ csrf_field() }}
-                </form>
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ route('profile') }}">{{ Auth::user()->name }}</a></li>
+                    <li>
+                        <a class="btn" id="logout" href="{{ route('logout') }}">@lang('Logout')</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
             @else 
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('register') }}" class="btn">Регистрация</a></li>

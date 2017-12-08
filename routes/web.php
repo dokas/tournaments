@@ -14,6 +14,13 @@
 // Home
 Route::name('home')->get('/', 'Front\IndexController@index');
 
+// Profile
+Route::prefix('profile')->namespace('Front')->middleware('player')->group(function() {
+    Route::name('profile')->get('/', 'UserController@profile');
+    Route::name('profile.settings')->get('/settings', 'UserController@settings');
+    Route::name('profile.update')->put('/settings', 'UserController@update');
+});
+
 // Authentification
 Auth::routes();
 

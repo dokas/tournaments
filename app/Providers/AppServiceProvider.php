@@ -30,6 +30,10 @@ class AppServiceProvider extends ServiceProvider
             return auth()->user()->getRole()->name === 'author';
         });
 
+        Blade::if('player', function() {
+        return auth()->user()->getRole()->name === 'player';
+    });
+
         Blade::if('request', function ($url) {
             return request()->is($url);
         });        

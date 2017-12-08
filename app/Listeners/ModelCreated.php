@@ -11,8 +11,7 @@ class ModelCreated
     /**
      * Handle the event.
      *
-     * @param  ModelCreated  $event
-     * @return void
+     * @param  EventModelCreated  $event
      */
     public function handle(EventModelCreated $event)
     {
