@@ -3,7 +3,7 @@
 return [
     'breadcrumbs' => [
         'dashboard-name' => 'dashboard',
-        'posts-name' => 'posts',
+        'tournaments-name' => 'tournaments',
         'users-name' => 'users',
         'edition-name' => 'edition',
         'creation-name' => 'creation',
@@ -23,6 +23,10 @@ return [
         'newsEdit' => 'News Edition',
         'newsCreate' => 'News Creation',
         'newsShow' => 'News Viewing',
+        'tournamentsGestion' => 'Tournaments',
+        'tournamentsEdit' => 'Tournaments Edition',
+        'tournamentsCreate' => 'Tournaments Creation',
+        'tournamentsShow' => 'Tournaments Viewing',
         'notificationsGestion' => 'New Comments',
         'commentsGestion' => 'Comments Gestion',
         'mediasGestion' => 'Medias Gestion',
@@ -35,6 +39,7 @@ return [
         'dashboard' => 'Dashboard',
         'users' => 'Users',
         'newss' => 'News',
+        'tournaments' => 'Tournaments',
         'list' => 'List All',
         'new' => 'List New',
         'contacts' => 'Contacts',
@@ -45,6 +50,7 @@ return [
     ],
     'new-messages' => 'New contacts !',
     'new-registers' => 'New users !',
-    'new-posts' => 'New posts !',
+    'new-news' => 'New news !',
+    'new-tournaments' => 'New tournaments !',
     'new-comments' => 'New comments !',
 ];

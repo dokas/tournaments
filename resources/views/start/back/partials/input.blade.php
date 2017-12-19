@@ -18,6 +18,8 @@
         </select>
     @elseif ($input['input'] === 'slider')
         <input class="slider" id="{{ $input['name'] }}" name="{{ $input['name'] }}" type="text" data-slider-min="{{ $input['min'] }}" data-slider-max="{{ $input['max'] }}" data-slider-step="1" data-slider-value="{{ old($input['name'], $input['value']) }}"/>
+    @elseif ($input['input'] === 'hidden')
+        <input id="{{ $input['name'] }}" name="{{ $input['name'] }}" type="hidden" value="{{ old($input['name'], $input['value']) }}" />
     @else
         <input type="text" class="form-control" id="{{ $input['name'] }}" name="{{ $input['name'] }}" value="{{ old($input['name'], $input['value']) }}" @if ($input['required']) required @endif>
     @endif

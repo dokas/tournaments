@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
@@ -33,7 +34,7 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="/">Home</a></li>
-              <li><a href="#">About</a></li>
+              <li><a href="{{ route('tournaments') }}">Tournaments</a></li>
               <li><a href="">Contact</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -79,9 +80,10 @@
     </main><!-- /.container -->
 
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{{asset(env('THEME'))}}/front/js/jquery/jquery-3.2.1.min.js"></script>
     <script src="{{asset(env('THEME'))}}/front/js/bootstrap/bootstrap.min.js"></script>
-    <!--script src="{{asset(env('THEME'))}}/front/js/app.js"></script-->
+    <script src="{{asset(env('THEME'))}}/front/js/app.js"></script>
+    @yield('js')
     <script>
 	   $(function() {
 		   $('#logout').click(function(e) {

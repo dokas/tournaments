@@ -1,3 +1,10 @@
 .wrapper {
 	padding: 50px 0;
 }
+
+.hero-class-item {
+    opacity: 0.6;
+}
+.hero-class-item.active {
+    opacity: 1;
+}

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Tournaments\Participant;
+use App\Models\Tournaments\Tournament;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\IngoingTrait;
@@ -38,6 +40,7 @@ class User extends Authenticatable
     ];
 
     /**
+     * Relationship one to meny
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function roles()
@@ -63,4 +66,23 @@ class User extends Authenticatable
     {
         return $this->roles()->where('name', $name)->count() ? true : false;
     }
+
+    /**
+     * Relationship one to many
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tournaments()
+    {
+        return $this->hasMany(Tournament::class);
+    }
+
+    /**
+     * Relationship one to many
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function participants()
+    {
+        return $this->hasMany(Participant::class);
+    }
+
 }

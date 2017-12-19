@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Back;
 
 use App\Repositories\UserRepository;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Back\Indexable;
 use App\Models\User;
 use App\Models\Role;
 use App\Http\Requests\UserUpdateRequest;

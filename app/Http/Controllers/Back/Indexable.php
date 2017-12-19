@@ -8,9 +8,9 @@ use App\Services\Thumb;
 trait Indexable
 {
     /**
-     * The PostRepository instance.
+     * The Repository instance.
      *
-     * @var \App\Repositories\PostRepository
+     * @var \App\Repositories\{Model}Repository
      */
     protected $repository;
 

@@ -185,6 +185,28 @@ desired effect
           ],
         ])
 
+        @include(env('THEME').'.back.partials.treeview', [
+          'icon' => 'ravelry',
+          'type' => 'tournament',
+          'items' => [
+            [
+              'route' => route('tournaments.index'),
+              'command' => 'list',
+              'color' => 'blue',
+            ],
+            [
+              'route' => route('tournaments.index', ['new' => 'on']),
+              'command' => 'new',
+              'color' => 'yellow',
+            ],
+            [
+              'route' => route('tournaments.create'),
+              'command' => 'create',
+              'color' => 'green',
+            ],
+          ],
+        ])
+
 
         @if (isset($countNotifications))
           <li><a href="{{ route('notifications.index', [auth()->id()]) }}"><i class="fa fa-bell"></i> <span>@lang('Notifications')</span></a></li>
